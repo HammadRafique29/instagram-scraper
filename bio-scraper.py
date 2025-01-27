@@ -72,13 +72,16 @@ def scrape_description(bot, username):
 
     # check the account bio
     try:
-        description = bot.find_element(By.TAG_NAME, 'h1').text.lower()
+        description = bot.find_element(By.XPATH, '//header//section[4]').text.lower()
     except:
         description = ''
 
     # check the link in bio
+    print(description)
     link = ''
     try:
+        linksData = []
+        links = bot.find_elements(By.XPATH, '//header//section[4]//a')
         html_source = bot.page_source
         urls = re.findall(r'href=[\'"]?([^\'" >]+)', html_source)
         for url in urls:

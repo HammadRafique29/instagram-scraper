@@ -116,19 +116,15 @@ def scrape_following(bot, username):
 def scrape():
     credentials = load_credentials()
 
-    if credentials is None:
-        username, password = prompt_credentials()
-    else:
-        username, password = credentials
-
+    if credentials is None: username, password = prompt_credentials()
+    else: username, password = credentials
     usernames = input("Enter the Instagram usernames you want to scrape (separated by commas): ").split(",")
 
     options = webdriver.ChromeOptions()
     # options.add_argument('--headless')
-    mobile_emulation = {
-        "userAgent": "Mozilla/5.0 (Linux; Android 10; SM-G970F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36"}
+    mobile_emulation = {"userAgent": "Mozilla/5.0 (Linux; Android 10; SM-G970F) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Mobile Safari/537.36"}
     options.add_experimental_option("mobileEmulation", mobile_emulation)
-
+    
     bot = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
     login(bot, username, password)
 

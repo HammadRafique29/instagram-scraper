@@ -1,6 +1,6 @@
 # Instagram followers and bio scraper
 
-This is a modified version of the Instagram parser used for scraping followers. The source repository can be found at: https://github.com/redianmarku/instagram-follower-scraper
+This is a modified version of the Instagram parser used for scraping followers.
 
 ## Changes
 
